@@ -20,7 +20,7 @@ jobs:
       - run:
           name: Build and Run Docker Compose
           command: |
-            docker-compose -f docker-compose.yml up --build -d
+            docker-compose -f /master/NewsApi/docker-compose.yml up --build -d
             sleep 10
             docker-compose ps
 workflows:
