@@ -6,7 +6,6 @@ executors:
     working_directory: ~/project
     environment:
       DOCKER_BUILDKIT: 1
-
 jobs:
   setup:
     executor: docker-executor
@@ -25,7 +24,6 @@ jobs:
             docker-compose -f docker-compose.yml up --build -d
             sleep 10
             docker-compose ps
-
 workflows:
   version: 2
   build_and_deploy:
