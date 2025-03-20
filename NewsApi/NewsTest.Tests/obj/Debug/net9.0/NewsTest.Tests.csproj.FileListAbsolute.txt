@@ -1,0 +1,6 @@
+C:\Users\kalea\Documents\NewsManagement\NewsApi\NewsTest.Tests\obj\Debug\net9.0\NewsTest.Tests.csproj.AssemblyReference.cache
+C:\Users\kalea\Documents\NewsManagement\NewsApi\NewsTest.Tests\obj\Debug\net9.0\MvcTestingAppManifest.json
+C:\Users\kalea\Documents\NewsManagement\NewsApi\NewsTest.Tests\obj\Debug\net9.0\NewsTest.Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\kalea\Documents\NewsManagement\NewsApi\NewsTest.Tests\obj\Debug\net9.0\NewsTest.Tests.AssemblyInfoInputs.cache
+C:\Users\kalea\Documents\NewsManagement\NewsApi\NewsTest.Tests\obj\Debug\net9.0\NewsTest.Tests.AssemblyInfo.cs
+C:\Users\kalea\Documents\NewsManagement\NewsApi\NewsTest.Tests\obj\Debug\net9.0\NewsTest.Tests.csproj.CoreCompileInputs.cache

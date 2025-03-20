@@ -1,0 +1,43 @@
+version: '3'
+services:
+
+  front:
+    container_name: newsmanagement-front
+    image: vuejs-cookbook/dockerize-vuejs-app:latest
+    ports:
+      - "8080:8080"
+    networks:
+      - newsmanagement
+    depends_on:
+      - api
+
+  api:
+    container_name: newsmanagement-api
+    image: newsmanagementbackend:latest
+    ports:
+      - "7117:7117"
+    networks:
+      - newsmanagement
+    environment:
+      - ASPNETCORE_URLS=http://0.0.0.0:7117
+    depends_on:
+      db:
+        condition: service_healthy
+  db:
+    image: "mcr.microsoft.com/mssql/server:2022-latest"
+    environment:
+      SA_PASSWORD: "Pa55word1950"
+      ACCEPT_EULA: "Y"
+    ports:
+      - 1433:1433
+    networks:
+      - newsmanagement
+    healthcheck:
+      test: [ "CMD-SHELL", "/opt/mssql-tools18/bin/sqlcmd -S localhost -U sa -P 'Pa55word1950' -Q 'SELECT 1' -C" ]
+      interval: 10s
+      timeout: 5s
+      retries: 10
+
+networks:
+  newsmanagement:
+    driver: bridge
