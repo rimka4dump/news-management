@@ -15,7 +15,7 @@ jobs:
       - checkout
       - run:
           name: Build frontend Image
-          command: docker build -t columbia-registry.spektrum.media/newsmanagementfrontend:prod -f .
+          command: docker build -t columbia-registry.spektrum.media/newsmanagementfrontend:prod .
       - run:
           name: Build backend Image
           command: docker build -t columbia-registry.spektrum.media/newsmanagementbackend:prod -f ./NewsApi
