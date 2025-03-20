@@ -1,4 +1,5 @@
 <<<<<<< HEAD
+<<<<<<< HEAD
 # newsManagement
 
 This template should help get you started developing with Vue 3 in Vite.
@@ -31,3 +32,6 @@ npm run build
 =======
 # news-management
 >>>>>>> 74ea3aa (Initial commit)
+=======
+# news-management
+>>>>>>> 74ea3aa71e27655c96cd5180459e83893f6b7d91
