@@ -1,4 +1,5 @@
 version: 2.1
+
 executors:
   docker-executor:
     docker:
@@ -6,6 +7,7 @@ executors:
     working_directory: ~/project
     environment:
       DOCKER_BUILDKIT: 1
+
 jobs:
   setup:
     executor: docker-executor
@@ -15,29 +17,33 @@ jobs:
       - checkout
       - run:
           name: Install Docker Compose
-          command: |
-            apk add --no-cache docker-compose
+          command: apk add --no-cache docker-compose
       - run:
           name: Build and Run Docker Compose
           command: |
-            docker-compose -f ./NewsApi/docker-compose.yml up --build -d
+            docker-compose -f NewsApi/docker-compose.yml up --build -d
             sleep 10
             docker-compose ps
+      - persist_to_workspace:
+          root: ~/project
+          paths:
+            - .
+
   build:
-    docker:
-      - image: docker:20.10.7
+    executor: docker-executor
     steps:
+      - attach_workspace:
+          at: ~/project
       - checkout
-filters:
-  branches:
-    only:
-      - master
+
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - setup
       - build:
+          requires:
+            - setup
           filters:
             branches:
               only:
