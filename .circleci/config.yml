@@ -6,22 +6,26 @@ executors:
     working_directory: ~/project
     environment:
       DOCKER_BUILDKIT: 1
+
 jobs:
   setup:
     executor: docker-executor
     steps:
       - setup_remote_docker:
           version: 20.10.7
+          docker_layer_caching: true
       - checkout
       - run:
           name: Install Docker Compose
           command: |
-            apk add --no-cache py3-pip
-            pip3 install docker-compose
+            apk add --no-cache docker-compose
       - run:
           name: Build and Run Docker Compose
           command: |
             docker-compose -f docker-compose.yml up --build -d
+            sleep 10  # Laisser le temps aux conteneurs de démarrer
+            docker-compose ps  # Vérifier les conteneurs en cours d'exécution
+
 workflows:
   version: 2
   build_and_deploy:
