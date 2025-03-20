@@ -28,12 +28,13 @@ jobs:
       - image: docker:20.10.7
     steps:
       - checkout
-    filters:
-      branches:
-        only:
-          - master
 workflows:
   version: 2
   build_and_deploy:
     jobs:
       - setup
+      - build:
+          filters:
+            branches:
+              only:
+                - master
