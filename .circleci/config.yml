@@ -18,7 +18,7 @@ jobs:
           command: docker build -t columbia-registry.spektrum.media/newsmanagementfrontend:prod .
       - run:
           name: Build backend Image
-          command: docker build -t columbia-registry.spektrum.media/newsmanagementbackend:prod -f ./NewsApi
+          command: docker build -t columbia-registry.spektrum.media/newsmanagementbackend:prod ./NewsApi
       - run:
           name: Push frontend Image
           command: docker push columbia-registry.spektrum.media/newsmanagementfrontend:prod
