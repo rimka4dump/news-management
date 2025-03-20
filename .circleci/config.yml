@@ -1,14 +1,44 @@
 version: 2.1
-
-jobs:
-  hello-job:
+executors:
+  docker-executor:
     docker:
-      - image: cimg/node:17.2.0 # the primary container, where your job's commands are run
+      - image: docker:20.10.7
+    working_directory: ~/project
+    environment:
+      DOCKER_BUILDKIT: 1
+jobs:
+  setup:
+    executor: docker-executor
     steps:
-      - checkout # check out the code in the project directory
-      - run: echo "hello world" # run the `echo` command
-
+      - setup_remote_docker:
+          docker_layer_caching: true
+      - checkout
+      - run:
+          name: Install Docker Compose
+          command: |
+            apk add --no-cache docker-compose
+      - run:
+          name: Build and Run Docker Compose
+          command: |
+            docker-compose -f ./NewsApi/docker-compose.yml up --build -d
+            sleep 10
+            docker-compose ps
+  build:
+    docker:
+      - image: docker:20.10.7
+    steps:
+      - checkout
+filters:
+  branches:
+    only:
+      - master
 workflows:
-  my-workflow:
+  version: 2
+  build_and_deploy:
     jobs:
-      - hello-job
+      - setup
+      - build:
+          filters:
+            branches:
+              only:
+                - master
