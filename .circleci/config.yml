@@ -23,8 +23,8 @@ jobs:
           name: Build and Run Docker Compose
           command: |
             docker-compose -f docker-compose.yml up --build -d
-            sleep 10  # Laisser le temps aux conteneurs de démarrer
-            docker-compose ps  # Vérifier les conteneurs en cours d'exécution
+            sleep 10
+            docker-compose ps
 
 workflows:
   version: 2
