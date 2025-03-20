@@ -15,10 +15,10 @@ jobs:
       - checkout
       - run:
           name: Build frontend Image
-          command: build -t columbia-registry.spektrum.media/newsmanagementfrontend:prod -f .
+          command: docker build -t columbia-registry.spektrum.media/newsmanagementfrontend:prod -f .
       - run:
           name: Build backend Image
-          command: build -t columbia-registry.spektrum.media/newsmanagementbackend:prod -f ./NewsApi
+          command: docker build -t columbia-registry.spektrum.media/newsmanagementbackend:prod -f ./NewsApi
       - run:
           name: Push frontend Image
           command: docker push columbia-registry.spektrum.media/newsmanagementfrontend:prod
