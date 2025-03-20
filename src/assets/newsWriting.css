@@ -1,0 +1,132 @@
+.news-creation {
+    width: 40vw;
+}
+
+.container{
+    display: flex;
+    flex-direction: row;
+    gap: 10vw;
+    margin-left: -20vw;
+    margin-top: 10vh;
+}
+
+.write-news-title{
+    margin-bottom: 2rem;
+    color: white;
+    font-size: 3rem;
+    font-weight: bold;
+}
+
+.creation-form {
+    background: white;
+    padding: 1.5rem;
+    border-radius: 8px;
+    box-shadow: 0 2px 4px rgba(0,0,0,0.1);
+}
+
+.form-group {
+    margin-bottom: 1rem;
+}
+
+.form-group label {
+    display: block;
+    margin-bottom: 0.5rem;
+    font-weight: 500;
+}
+
+.submit {
+    background: #0b81d5;
+    color: white;
+    font-weight: bold;
+    font-size: 1rem;
+    width: 100%;
+    padding: 1rem;
+    border-radius: 8px;
+}
+
+.submit:hover{
+    background: #0a5993;
+}
+
+.form-textarea {
+    height: 25vh;
+    resize: vertical;
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.form-input {
+    width: 100%;
+    padding: 0.5rem;
+    border: 1px solid #ddd;
+    border-radius: 4px;
+}
+
+.newspaper-cover {
+    width: 35vw;
+    border-radius: 4px;
+    padding: 20px;
+    font-family: "Times New Roman", serif;
+    height: 70vh;
+    margin-top: -6vh;
+    box-shadow: 2px 3px 20px black, 0 0 60px #8a4d0f inset;
+    background: #fffef0;
+}
+
+.header {
+    text-align: center;
+    border-bottom: 2px solid black;
+    padding-bottom: 10px;
+}
+
+.title {
+    font-size: 36px;
+    font-weight: bold;
+    color: black;
+    font-family: "Times New Roman", serif;
+}
+
+.date {
+    font-size: 16px;
+    color: gray;
+}
+
+.main-image img {
+    width: 100%;
+    height: auto;
+    margin: 15px 0;
+    border-radius: 5px;
+}
+
+.summary {
+    text-align: justify;
+}
+
+.summary h2 {
+    font-size: 24px;
+    margin-bottom: 10px;
+}
+
+.summary p {
+    font-size: 18px;
+    line-height: 1.6;
+}
+
+.navigate-home-button {
+    background: #39a0f1;
+    color: white;
+    font-weight: bold;
+    height: 5vh;
+    width: 15vw;
+    border: none;
+    border-radius: 9px;
+    position: absolute;
+    bottom: 0;
+    left: 6.5vw;
+    box-shadow: 1px 1px 1px #011515;
+}
+.navigate-home-button:hover{
+    background: #0a5993;
+}
